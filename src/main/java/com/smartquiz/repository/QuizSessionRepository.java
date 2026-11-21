@@ -1,0 +1,9 @@
+package com.smartquiz.repository;
+
+import com.smartquiz.model.QuizSession;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface QuizSessionRepository
+        extends JpaRepository<QuizSession, Long> {
+
+}

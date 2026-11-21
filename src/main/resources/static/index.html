@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Adaptive Quiz</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            ◈ Smart Quiz
+        </div>
+
+        <nav>
+
+            <button class="nav active"
+                    data-view="dashboard">
+                Dashboard
+            </button>
+
+            <button class="nav"
+                    data-view="upload">
+                Upload PDF
+            </button>
+
+            <button class="nav"
+                    data-view="puzzle">
+                Word Search Puzzle
+            </button>
+
+            <button class="nav"
+                    data-view="quiz">
+                Adaptive Quiz
+            </button>
+
+            <button class="nav"
+                    data-view="mistakes">
+                Mistake Analyzer
+            </button>
+
+            <button class="nav"
+                    data-view="progress">
+                Progress
+            </button>
+
+        </nav>
+
+        <div class="side-note">
+            Rule-based learning system
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        <header>
+
+            <div>
+
+                <p class="eyebrow">
+                    LEARNING WORKSPACE
+                </p>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+            </div>
+
+            <span class="status">
+                ● System ready
+            </span>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard"
+                 class="view active">
+
+            <div class="cards" id="stats"></div>
+
+            <div class="panel">
+
+                <h2>Topic-wise accuracy</h2>
+
+                <div id="topicBars"
+                     class="bars"></div>
+
+            </div>
+
+            <div class="two">
+
+                <div class="panel">
+
+                    <h2>Answer distribution</h2>
+
+                    <div id="distribution"></div>
+
+                </div>
+
+                <div class="panel">
+
+                    <h2>Topics to revisit</h2>
+
+                    <div id="weakTopics"></div>
+
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h2>Recent activity</h2>
+
+                <input id="activityFilter"
+                       placeholder="Filter by topic...">
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Topic</th>
+                                <th>Answer</th>
+                                <th>Result</th>
+                                <th>Time</th>
+                                <th>Date</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="activity"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PDF UPLOAD -->
+
+        <section id="upload"
+                 class="view">
+
+            <div class="panel upload-panel">
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+                <h2>Upload your study material</h2>
+
+                <p>
+                    Choose a text-based PDF to generate
+                    quiz questions and a word-search puzzle.
+                </p>
+
+                <input type="file"
+                       id="pdfFile"
+                       accept="application/pdf,.pdf">
+
+                <button id="uploadBtn"
+                        class="primary">
+
+                    Upload and process PDF
+
+                </button>
+
+                <p id="uploadMessage"
+                   class="message"></p>
+
+            </div>
+
+        </section>
+
+        <!-- WORD SEARCH -->
+
+        <section id="puzzle"
+                 class="view">
+
+            <div class="panel">
+
+                <h2>Find the hidden concepts</h2>
+
+                <p>
+                    Select letters in the grid and
+                    identify the matching target words.
+                </p>
+
+                <div class="puzzle-layout">
+
+                    <div id="grid"
+                         class="letter-grid">
+                    </div>
+
+                    <div>
+
+                        <h3>Target words</h3>
+
+                        <ul id="wordList"
+                            class="word-list">
+                        </ul>
+
+                        <input id="wordSelection"
+                               placeholder="Type a found word">
+
+                        <button id="checkWord"
+                                class="primary">
+                            Check selection
+                        </button>
+
+                        <p id="puzzleMessage"
+                           class="message">
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADAPTIVE QUIZ -->
+
+        <section id="quiz"
+                 class="view">
+
+            <div class="panel quiz-panel">
+
+                <div class="quiz-meta">
+
+                    <span id="qCount">
+                        Upload a PDF to begin
+                    </span>
+
+                    <span id="qDifficulty">
+                        —
+                    </span>
+
+                </div>
+
+                <h2 id="questionText">
+                    Your generated questions
+                    will appear here.
+                </h2>
+
+                <div id="options"
+                     class="options">
+                </div>
+
+                <button id="nextQuestion"
+                        class="primary"
+                        disabled>
+
+                    Submit answer
+
+                </button>
+
+                <p id="quizFeedback"
+                   class="message">
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- MISTAKE ANALYZER -->
+
+        <section id="mistakes"
+                 class="view">
+
+            <div class="panel">
+
+                <h2>Mistake analysis</h2>
+
+                <p>
+                    Repeated incorrect answers
+                    grouped by topic.
+                </p>
+
+                <div id="mistakeContent"></div>
+
+            </div>
+
+        </section>
+
+        <!-- PROGRESS -->
+
+        <section id="progress"
+                 class="view">
+
+            <div class="panel">
+
+                <h2>Learning progress</h2>
+
+                <div id="progressContent"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/app.js"></script>
+
+</body>
+
+</html>
