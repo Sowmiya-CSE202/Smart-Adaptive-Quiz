@@ -253,7 +253,10 @@ async function submitHandler() {
             data.message +
             ` Correct answer: ${data.correctAnswer}. Difficulty: ${data.difficulty}`;
 
-        $("nextQuestion").disabled = true;
+        // Disable option buttons so user cannot re-select after submission
+        document.querySelectorAll(".option").forEach(btn => btn.disabled = true);
+
+        $("nextQuestion").disabled = false;
 
         $("nextQuestion").textContent =
             "Next question";
@@ -390,6 +393,11 @@ async function loadPuzzle() {
 
             $("puzzleMessage").textContent =
                 "That word is not in the target list.";
+
+            document.querySelectorAll(".letter.selected")
+                .forEach(button => {
+                    button.classList.remove("selected");
+                });
 
         }
 
